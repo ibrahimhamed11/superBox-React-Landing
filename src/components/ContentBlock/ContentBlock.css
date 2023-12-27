@@ -1,0 +1,27 @@
+.bold-title {
+    font-weight: bold;
+    font-size: 30px; /* Adjust the font size as needed */
+    color: #fff; /* Set the font color to white for better contrast */
+    background-color: #e74c3c; /* Set the background color to a shade of red */
+    padding: 10px 20px; /* Add padding for better spacing */
+    border-radius: 5px; /* Add border-radius for rounded corners */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow for depth */
+    animation: vibration 0.8s infinite alternate;
+  }
+  
+  @keyframes vibration {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(2px);
+    }
+  }
+  
+
+  /* Add this CSS to your existing stylesheet or create a new one */
+.small-font {
+    font-size: 20px; /* Adjust the font size as needed */
+    /* Add any other styling properties as per your design */
+  }
+  

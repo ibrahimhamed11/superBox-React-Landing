@@ -10,7 +10,6 @@ import Input from "../../common/Input";
 import { ContactContainer, FormGroup, Span, ButtonContainer } from "./styles";
 import { toast } from 'react-toastify';
 
-// Define the type for user location
 type UserLocation = {
   latitude: number;
   longitude: number;
@@ -30,7 +29,6 @@ const Contact = ({ title, content, id, t }: ContactProps) => {
   };
 
   useEffect(() => {
-    // Fetch user location when the component mounts
     getUserLocation();
   }, []);
 
@@ -66,13 +64,10 @@ const Contact = ({ title, content, id, t }: ContactProps) => {
   const handleClickSubmit = async () => {
     const ipAddress = await getUserIpAddress();
 
-
-    // Get UTM parameters from the URL
     const urlParams = new URLSearchParams(window.location.search);
     const utmSource = urlParams.get("utm_source");
     const utmMedium = urlParams.get("utm_medium");
     const utmCampaign = urlParams.get("utm_campaign");
-
 
     const formData = {
       ...values,
@@ -83,13 +78,9 @@ const Contact = ({ title, content, id, t }: ContactProps) => {
       utmCampaign,
     };
 
+    console.log("form data", formData);
 
-    console.log("form data",formData)
-
-
-
-    
-    if (formData) {
+    if (formData.name.trim() || formData.phone.trim() || formData.address.trim()) {
       toast.success('تم ارسال الطلب بنجاح سيتم التواصل معك', {
         position: "top-right",
         autoClose: 5000,
@@ -104,7 +95,6 @@ const Contact = ({ title, content, id, t }: ContactProps) => {
         },
       });
     } else {
-      // At least one value is an empty string, show error toast
       toast.error('الرجاء ملء جميع الحقول المطلوبة', {
         position: "top-right",
         autoClose: 5000,
@@ -119,7 +109,6 @@ const Contact = ({ title, content, id, t }: ContactProps) => {
         },
       });
     }
-  
   };
 
   return (

@@ -5,8 +5,8 @@ import boxdetails from "../../content/boxdetails.json";
 import Gold from "../../content/Gold.json";
 import Reviews from "../../content/Reviews.json";
 import form from "../../content/form.json";
-import Slider from "./Slider";
-import WhatsAppIcon from "./WhatsAppIcon";
+import Slider from "../../components/Slider/Slider";
+import WhatsAppIcon from "../../components/whatsApp/WhatsAppIcon";
 
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -32,7 +32,7 @@ const Home: React.FC = () => {
     const importImages = async () => {
       const images = [];
       for (let i = 1; i <= 3; i++) {
-        const image = await import(`./sec${i}.png`);
+        const image = await import(`../../assets/sec${i}.png`);
         images.push({
           id: i,
           title: `Slide ${i}`,
@@ -76,7 +76,7 @@ const Home: React.FC = () => {
         direction="right"
         title={Gold.title}
         content={Gold.text}
-        content2={Gold.text}
+        content2={Gold.text2}
         icon="icon2"
         id="Gold"
       />
@@ -86,7 +86,7 @@ const Home: React.FC = () => {
         direction="right"
         title={Quality.title}
         content={Quality.text}
-        content2={Quality.text}
+        content2={Quality.text2}
         icon="icon3"
         id="Quality"
       />

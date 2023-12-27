@@ -20,14 +20,13 @@ import Pngicon from "../../sec1.png";
 import Pngicon2 from "../../sec2.png";
 import Pngicon3 from "../../sec3.png";
 
-
+import "./ContentBlock.css"; // Import the CSS file for styling
 
 const ContentBlock = ({
   icon,
   title,
   content,
   content2,
-
   section,
   button,
   t,
@@ -51,7 +50,7 @@ const ContentBlock = ({
           direction={direction}
         >
           <Col lg={11} md={11} sm={12} xs={24}>
-          <img
+            <img
               src={
                 icon === "icon1" ? Pngicon :
                 icon === "icon2" ? Pngicon2 :
@@ -60,19 +59,16 @@ const ContentBlock = ({
               alt="Icon"
               style={{
                 width: "600px", // default width
-                height: "600px", // default height
+                height: "450px", // default height
                 maxWidth: "100%", // ensure responsiveness
               }}
             />
           </Col>
           <Col lg={11} md={11} sm={11} xs={24}>
             <ContentWrapper>
-              <h6>{t(title)}</h6>
-              <Content>{t(content)}</Content>
-              <Content>{t(content2)}</Content>
-
-          
-
+            <h5 className="bold-title">{t(title)}</h5>
+  <Content className="small-font">{t(content)}</Content>
+  <Content className="small-font">{t(content2)}</Content>
               {direction === "right" ? (
                 <ButtonWrapper>
                   {typeof button === "object" &&

@@ -19,10 +19,10 @@ const WhatsAppIcon = () => {
     >
       <div style={{ cursor: "pointer" }} onClick={handleWhatsAppClick} role="button" aria-label="Open WhatsApp">
         <a href="#" style={{ textDecoration: "none", color: "inherit" }}>
-          <WhatsAppIconSvg style={{ width: "50px", height: "50px" }} />
+          <WhatsAppIconSvg style={{ width: "70px", height: "70px" }} />
         </a>
       </div>
-      <p style={{ marginTop: "10px", fontSize: "14px" }}>تواصل معنا من خلال الواتس اب</p>
+      <p style={{ marginTop: "10px", fontSize: "20px" }}>تواصل معنا من خلال الواتس اب</p>
     </div>
   );
 };
