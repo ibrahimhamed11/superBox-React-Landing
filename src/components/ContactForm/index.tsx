@@ -9,6 +9,7 @@ import Block from "../Block";
 import Input from "../../common/Input";
 import { ContactContainer, FormGroup, Span, ButtonContainer } from "./styles";
 import { toast } from 'react-toastify';
+import './style.css';
 
 type UserLocation = {
   latitude: number;
@@ -91,7 +92,9 @@ const Contact = ({ title, content, id, t }: ContactProps) => {
         style: {
           backgroundColor: 'green',
           color: 'white',
-          fontSize: 20,
+          fontSize: 23,
+          fontFamily: 'Droid Arabic Naskh, sans-serif', 
+
         },
       });
     } else {
@@ -105,7 +108,11 @@ const Contact = ({ title, content, id, t }: ContactProps) => {
         style: {
           backgroundColor: 'red',
           color: 'white',
-          fontSize: 20,
+          fontSize: 23,
+          fontFamily: 'Droid Arabic Naskh, sans-serif', 
+
+
+
         },
       });
     }
