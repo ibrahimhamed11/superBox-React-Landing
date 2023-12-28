@@ -19,7 +19,9 @@ import {
 import Pngicon from "../../sec1.png";
 import Pngicon2 from "../../sec2.png";
 import Pngicon3 from "../../sec3.png";
+import Pngicon0 from "../../sec0.png";
 
+import ProductComponent from "../OfferAnimation/OfferAnimation";
 import "./ContentBlock.css"; // Import the CSS file for styling
 
 const ContentBlock = ({
@@ -32,6 +34,7 @@ const ContentBlock = ({
   t,
   id,
   direction,
+  showProductComponent, // New prop to control visibility
 }: ContentBlockProps) => {
   const scrollTo = (id: string) => {
     const element = document.getElementById(id) as HTMLDivElement;
@@ -54,21 +57,34 @@ const ContentBlock = ({
               src={
                 icon === "icon1" ? Pngicon :
                 icon === "icon2" ? Pngicon2 :
+                icon === "icon0" ? Pngicon0 :
                 icon === "icon3" ? Pngicon3 : undefined
               }
               alt="Icon"
               style={{
-                width: "600px", // default width
-                height: "450px", // default height
+                width: "100%", // default width
+                height: "100%", // default height
                 maxWidth: "100%", // ensure responsiveness
               }}
             />
           </Col>
           <Col lg={11} md={11} sm={11} xs={24}>
             <ContentWrapper>
-            <h5 className="bold-title">{t(title)}</h5>
-  <Content className="small-font">{t(content)}</Content>
-  <Content className="small-font">{t(content2)}</Content>
+              <h5 className="bold-title">{t(title)}</h5>
+
+              {/* Conditionally render ProductComponent */}
+              {showProductComponent && (
+                <ProductComponent
+                  name="بوكس السوبر الحري"
+                  weight="8 - 10 كيلو تقريبا"
+                  currentPrice={599}
+                  originalPrice={799}
+                />
+              )}
+
+              <Content className="small-font">{t(content)}</Content>
+              <Content className="small-font">{t(content2)}</Content>
+
               {direction === "right" ? (
                 <ButtonWrapper>
                   {typeof button === "object" &&

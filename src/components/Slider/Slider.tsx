@@ -34,7 +34,6 @@ const SliderComponent: React.FC<SliderComponentProps> = ({ slides }) => {
     <Slider {...settings} initialSlide={currentSlide}>
       {slides.map((slide) => (
         <div key={slide.id}>
-          <h1>اراء العملاء</h1>
           <img
             src={slide.imageUrl}
             alt={slide.title}

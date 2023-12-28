@@ -1,18 +1,31 @@
-import { withTranslation } from "react-i18next";
-import { Container, StyledInput } from "./styles";
-import { Label } from "../TextArea/styles";
-import { InputProps } from "../types";
+// Input.tsx
 
-const Input = ({ arabicName,name, placeholder, onChange, t }: InputProps) => (
-  <Container>
-    <Label htmlFor={name}>{t(arabicName)}</Label>
-    <StyledInput
-      placeholder={t(placeholder)}
-      name={name}
-      id={name}
-      onChange={onChange}
-    />
-  </Container>
-);
+import React, { ChangeEvent } from "react";
 
-export default withTranslation()(Input);
+interface InputProps {
+  arabicName: string;
+  type: string;
+  name: string;
+  placeholder: string;
+  value: string;
+  onChange: (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
+  style?: React.CSSProperties;
+}
+
+const Input: React.FC<InputProps> = ({ arabicName, type, name, placeholder, value, onChange, style }) => {
+  return (
+    <div style={{ marginBottom: "15px", display: "flex", flexDirection: "column", alignItems: "flex-start" }}>
+      <label style={{ marginBottom: "5px", fontSize: "18px",    color: "white" }}>{arabicName}</label>
+      <input
+        type={type}
+        name={name}
+        placeholder={placeholder}
+        value={value}
+        onChange={onChange}
+        style={{ width: "150px", padding: "15px", borderRadius: "5px", ...style }}
+      />
+    </div>
+  );
+};
+
+export default Input;

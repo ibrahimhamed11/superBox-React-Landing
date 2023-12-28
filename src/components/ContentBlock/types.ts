@@ -4,7 +4,7 @@ export interface ContentBlockProps {
   title: string;
   content: string;
   content2: string;
-  
+  showProductComponent:boolean;
 
   section?: {
     title: string;

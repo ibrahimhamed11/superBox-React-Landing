@@ -1,3 +1,5 @@
+// Contact.tsx
+
 import React, { useState, useEffect } from "react";
 import { Row, Col } from "antd";
 import { withTranslation } from "react-i18next";
@@ -82,6 +84,12 @@ const Contact = ({ title, content, id, t }: ContactProps) => {
     console.log("form data", formData);
 
     if (formData.name.trim() || formData.phone.trim() || formData.address.trim()) {
+
+// Redirect to the specified URL after 2 seconds
+setTimeout(function() {
+  window.location.href = 'https://hummmyyummmy.com/';
+}, 2000); // 2000 milliseconds = 2 seconds
+
       toast.success('تم ارسال الطلب بنجاح سيتم التواصل معك', {
         position: "top-right",
         autoClose: 5000,
@@ -110,26 +118,33 @@ const Contact = ({ title, content, id, t }: ContactProps) => {
           color: 'white',
           fontSize: 23,
           fontFamily: 'Droid Arabic Naskh, sans-serif', 
-
-
-
         },
       });
     }
   };
 
   return (
-    <ContactContainer id={id} style={{ direction: "rtl", textAlign: "right" }}>
-      <Row justify="space-between" align="middle">
-        <Col lg={12} md={11} sm={24} xs={24}>
-          <Slide direction="left" triggerOnce>
-            <Block title={title} content={content} />
-          </Slide>
-        </Col>
-        <Col lg={12} md={12} sm={24} xs={24}>
+    <ContactContainer id={id} style={{ direction: "rtl", textAlign: "center"}}>
+      <Row justify="center" align="middle">
+        <Col lg={12} md={12} sm={12} xs={24}>
           <Slide direction="right" triggerOnce>
-            <FormGroup autoComplete="off" onSubmit={handleSubmit}>
-              <Col span={24}>
+          <FormGroup
+  autoComplete="off"
+  onSubmit={handleSubmit}
+  style={{
+    border: "3px dashed white", 
+    borderRadius: "10px", 
+    padding: "20px", 
+  }}
+
+>        
+
+<div style={{ background: '#f00', padding: '20px', borderRadius: '10px', textAlign: 'center', marginBottom: '50px', fontSize: '20px', width: '250px', margin: 'auto' }}>
+  <h4 style={{ color: '#fff', fontSize: '20px' }}>اطلب العرض الان</h4>
+</div>
+
+
+      <Col span={24}>
                 <Input
                   arabicName="الاسم"
                   type="text"
@@ -137,6 +152,7 @@ const Contact = ({ title, content, id, t }: ContactProps) => {
                   placeholder="اسمك"
                   value={values.name || ""}
                   onChange={handleChange}
+                  style={{ width: "100%", borderRadius: "8px", margin: "10px 0" }}
                 />
                 <ValidationType type="name" />
               </Col>
@@ -148,17 +164,19 @@ const Contact = ({ title, content, id, t }: ContactProps) => {
                   placeholder="رقم جوالك"
                   value={values.phone || ""}
                   onChange={handleChange}
+                  style={{ width: "100%", borderRadius: "8px", margin: "10px 0" }}
                 />
                 <ValidationType type="phone" />
               </Col>
               <Col span={24}>
                 <Input
-                  arabicName="العنوان"
+                  arabicName="المدينه"
                   type="text"
                   name="address"
-                  placeholder="عنوانك"
+                  placeholder="المدينه"
                   value={values.address || ""}
                   onChange={handleChange}
+                  style={{ width: "100%", borderRadius: "8px", margin: "10px 0" }}
                 />
                 <ValidationType type="address" />
               </Col>
@@ -167,11 +185,11 @@ const Contact = ({ title, content, id, t }: ContactProps) => {
                   type="submit"
                   name="submit"
                   style={{
-                    backgroundColor: "green",
+                    backgroundColor: "#3cde1c",
                     color: "white",
                     fontSize: "1.5em",
                     padding: "10px 20px",
-                    borderRadius: "8px",
+                    borderRadius: "20px",
                   }}
                   onClick={handleClickSubmit}
                 >

@@ -14,6 +14,8 @@ export const ContentSection = styled("section")`
 export const Content = styled("p")`
   margin: 1.5rem 0 2rem 0;
   text-align: center; /* Center-align text */
+  color:white
+
 `;
 
 export const StyledRow = styled(Row)`
@@ -25,11 +27,15 @@ export const ContentWrapper = styled("div")`
   position: relative;
   max-width: 540px;
   margin: 0 auto; /* Center-align the container */
+  padding: 20px; /* Add padding for better spacing */
+
+  /* Other styles... */
 
   @media only screen and (max-width: 575px) {
     padding-top: 4rem;
   }
 `;
+
 
 export const ServiceWrapper = styled("div")`
   display: flex;
@@ -45,6 +51,8 @@ export const MinTitle = styled("h6")`
   color: #000;
   font-family: "Motiva Sans Light", sans-serif;
   text-align: center; /* Center-align text */
+  color:white
+
 `;
 
 export const MinPara = styled("p")`
